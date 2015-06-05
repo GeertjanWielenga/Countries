@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+
+        <label for="countryInput">Country:</label>
+
+        <input id="countryInput" 
+               type="text" 
+               data-bind="value: selectedCountry" 
+               list="countryList" />
+
+        <datalist id="countryList" data-bind="foreach: countries">
+            <option data-bind="value: country"></option>
+        </datalist>
+
+        <div data-bind="visible: selectedCountry">
+            <hr>
+            <!--Display selected country: -->
+            <label for="countryInput">Selected: </label>
+            <b><span data-bind="text: selectedCountry"></span></b>
+            <!--Display states belonging to selected country: -->
+            <ul data-bind="foreach : countries">
+                <!-- ko if: country === $root.selectedCountry() -->
+                <ul data-bind="foreach: states">
+                    <li>
+                        <span data-bind="text: $data"></span>
+                    </li>
+                </ul>
+                <!-- /ko -->
+            </ul>
+        </div>
+
+        <script src="bower_components/knockout/dist/knockout.js" type="text/javascript"></script>
+        <script src="app.js" type="text/javascript"></script>
+
+    </body>
+</html>
