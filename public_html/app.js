@@ -729,7 +729,7 @@ var ViewModel = function () {
             },
             {
                 "country": "United Kingdom",
-                "states": []
+                "states": ["England", "Scotland", "Wales", "Northern Ireland"]
             },
             {
                 "country": "United States",
